@@ -15,11 +15,21 @@ namespace AlunosAPI.Controllers
         }
 
         [HttpGet]
+
         public async Task<IEnumerable<Aluno>> GetAlunos()
         {
             return await _alunoRepository.Get();
 
         }
+        /*public async Task<JsonResult> GetAlunos()
+        {
+            var alunos = await _alunoRepository.Get();
+
+            return new JsonResult(new
+            {
+                alunos
+            });
+        }*/
         [HttpGet("{id}")]
         public async Task<ActionResult<Aluno>> GetAlunos(int id)
         {
@@ -32,6 +42,7 @@ namespace AlunosAPI.Controllers
             var newAluno = await _alunoRepository.Create(aluno);
             return CreatedAtAction(nameof(GetAlunos), new {id = newAluno.Matricula}, newAluno);
         }
+
         [HttpDelete("{id}")]
         public async Task<ActionResult> Delete(int id)
         {
