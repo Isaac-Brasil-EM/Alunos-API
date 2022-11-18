@@ -52,3 +52,8 @@ C:\Users\Escolar Manager\source\repos\isaacEstudos\AlunosAPI\obj\Debug\net6.0\re
 C:\Users\Escolar Manager\source\repos\isaacEstudos\AlunosAPI\obj\Debug\net6.0\AlunosAPI.pdb
 C:\Users\Escolar Manager\source\repos\isaacEstudos\AlunosAPI\obj\Debug\net6.0\AlunosAPI.genruntimeconfig.cache
 C:\Users\Escolar Manager\source\repos\isaacEstudos\AlunosAPI\obj\Debug\net6.0\ref\AlunosAPI.dll
+C:\Users\Escolar Manager\source\repos\isaacEstudos\AlunosAPI\obj\Debug\net6.0\staticwebassets\msbuild.AlunosAPI.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\Escolar Manager\source\repos\isaacEstudos\AlunosAPI\obj\Debug\net6.0\staticwebassets\msbuild.build.AlunosAPI.props
+C:\Users\Escolar Manager\source\repos\isaacEstudos\AlunosAPI\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.AlunosAPI.props
+C:\Users\Escolar Manager\source\repos\isaacEstudos\AlunosAPI\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.AlunosAPI.props
+C:\Users\Escolar Manager\source\repos\isaacEstudos\AlunosAPI\obj\Debug\net6.0\staticwebassets.pack.json

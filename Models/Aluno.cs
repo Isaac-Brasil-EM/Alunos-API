@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Data;
 
 namespace AlunosAPI.Models
 {
@@ -17,5 +18,27 @@ namespace AlunosAPI.Models
         [DataType(DataType.Date)]
         public DateTime Nascimento { get; set; }
         public EnumeradorSexo Sexo { get; set; }
+
+
+        public static List<Aluno> ListarTabela(DataTable dt)
+        {
+            List<Aluno> lista = new();
+
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                Aluno alunos = new()
+                {
+                    Matricula = (int)dt.Rows[i]["MATRICULA"],
+                    Nome = dt.Rows[i]["NOME"].ToString(),
+                    Cpf = dt.Rows[i]["CPF"].ToString(),
+                    Nascimento = (DateTime)dt.Rows[i]["NASCIMENTO"],
+                    Sexo = (EnumeradorSexo)(int)dt.Rows[i]["SEXO"],
+
+                };
+                lista.Add(alunos);
+            }
+
+            return lista;
+        }
     }
 }
