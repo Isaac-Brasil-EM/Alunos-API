@@ -4,11 +4,11 @@ namespace AlunosAPI.Repositories
 {
     public interface IAlunoRepository
     {
-        Task<IEnumerable<Aluno>> Get();
-        Task<Aluno> Get(int Id);
-        Task<Aluno> Create(Aluno aluno);
-        Task Update(Aluno aluno);
-        Task Delete(int Id);
+        IEnumerable<Aluno> Get();
+        Aluno Get(int Id);
+        bool Add(Aluno aluno);
+        bool Update(int Id, Aluno aluno);
+        bool Remove(int Id);
 
     }
 }

@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "7I3HDRXZCvDfU9aBTw5JNmiaWwGjxprbSWGRkuCzFI0kmhxEAfFn/gzV7dN3H6SIPe+7iUYfESxKihcKgsHUOw==",
+  "dgSpecHash": "DsnKC8KDa1NLJ2ieDu7qI63k09H6QqT4E+Xip8gdzwGJ033OCcKppDgFfHtNs2Yyd9FGvxeoP4u9EzcfmR4L0w==",
   "success": true,
   "projectFilePath": "C:\\Users\\Escolar Manager\\source\\repos\\isaacEstudos\\AlunosAPI\\AlunosAPI.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Escolar Manager\\.nuget\\packages\\firebirdsql.data.firebirdclient\\9.1.0\\firebirdsql.data.firebirdclient.9.1.0.nupkg.sha512",
     "C:\\Users\\Escolar Manager\\.nuget\\packages\\microsoft.data.sqlite.core\\6.0.10\\microsoft.data.sqlite.core.6.0.10.nupkg.sha512",
     "C:\\Users\\Escolar Manager\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.10\\microsoft.entityframeworkcore.6.0.10.nupkg.sha512",
     "C:\\Users\\Escolar Manager\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\6.0.10\\microsoft.entityframeworkcore.abstractions.6.0.10.nupkg.sha512",

@@ -3,7 +3,7 @@ using AlunosAPI.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddDbContext<AlunoContext>(opt => opt.UseSqlite("Data source=alunos.db"));
+//builder.Services.AddDbContext<AlunoContext>(opt => opt.UseSqlite("Data source=alunos.db"));
 builder.Services.AddScoped<IAlunoRepository, AlunoRepository>();
 // Add services to the container.
 

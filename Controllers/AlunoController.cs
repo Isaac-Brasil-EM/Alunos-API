@@ -16,54 +16,49 @@ namespace AlunosAPI.Controllers
 
         [HttpGet]
 
-        public async Task<IEnumerable<Aluno>> GetAlunos()
+        public IEnumerable<Aluno> GetAlunos()
         {
-            return await _alunoRepository.Get();
+            return _alunoRepository.Get().ToList();
 
         }
-        /*public async Task<JsonResult> GetAlunos()
-        {
-            var alunos = await _alunoRepository.Get();
 
-            return new JsonResult(new
-            {
-                alunos
-            });
-        }*/
         [HttpGet("{id}")]
-        public async Task<ActionResult<Aluno>> GetAlunos(int id)
+        public ActionResult<Aluno> GetAlunos(int id)
         {
-            return await _alunoRepository.Get(id);
+            return _alunoRepository.Get(id);
         }
 
         [HttpPost]
-        public async Task<ActionResult<Aluno>> PostAlunos([FromBody] Aluno aluno)
+        public void PostAlunos([FromBody] Aluno aluno)
         {
-            var newAluno = await _alunoRepository.Create(aluno);
-            return CreatedAtAction(nameof(GetAlunos), new {id = newAluno.Matricula}, newAluno);
+            if (ModelState.IsValid == true)
+            {
+                _alunoRepository.Add(aluno);
+            }
+            else
+            {
+
+            }
         }
 
         [HttpDelete("{id}")]
-        public async Task<ActionResult> Delete(int id)
+        public void Delete(int id)
         {
-            var alunoToDelete = await _alunoRepository.Get(id);
-            if (alunoToDelete == null)
-                return NotFound();
 
-            await _alunoRepository.Delete(alunoToDelete.Matricula);
-            return NoContent();
-
+            if (ModelState.IsValid == true)
+            {
+                _alunoRepository.Remove(id);
+            }
         }
-        [HttpPut]
 
-        public async Task<ActionResult> PutAlunos(int id, [FromBody] Aluno aluno)
+        [HttpPut("{id}")]
+
+        public void PutAlunos(int id, [FromBody] Aluno aluno)
         {
-            if (id != aluno.Matricula)
-                return BadRequest();
-
-            await _alunoRepository.Update(aluno);
-
-            return NoContent();
+            if (ModelState.IsValid == true)
+            {
+                _alunoRepository.Update(id, aluno);
+            }
 
         }
 
