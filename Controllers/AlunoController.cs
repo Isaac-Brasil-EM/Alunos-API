@@ -1,6 +1,8 @@
-﻿using AlunosAPI.Models;
-using AlunosAPI.Repositories;
+﻿using Domain;
 using Microsoft.AspNetCore.Mvc;
+using MVCAlunos.Models;
+using Repository;
+
 
 namespace AlunosAPI.Controllers
 {
@@ -8,32 +10,60 @@ namespace AlunosAPI.Controllers
     [ApiController]
     public class AlunoController : ControllerBase
     {
-        private readonly IAlunoRepository _alunoRepository;
-        public AlunoController(IAlunoRepository alunoRepository)
-        {
-            _alunoRepository = alunoRepository;
-        }
-
         [HttpGet]
 
         public IEnumerable<Aluno> GetAlunos()
         {
-            return _alunoRepository.Get().ToList();
+
+            RepositorioAluno ra = new();
+
+            IEnumerable<Aluno> lista_alunos = new List<Aluno>();
+            lista_alunos = ra.GetAll();
+
+            IEnumerable<AlunoModel> listaAlunoModel = lista_alunos.Select(o => new AlunoModel
+            {
+                Matricula = o.Matricula,
+                Nome = o.Nome,
+                Cpf = o.Cpf,
+                Nascimento = o.Nascimento,
+                Sexo = (MVCAlunos.Models.EnumeradorSexo)o.Sexo
+            });
+
+            return lista_alunos;
 
         }
 
         [HttpGet("{id}")]
         public ActionResult<Aluno> GetAlunos(int id)
         {
-            return _alunoRepository.Get(id);
+            RepositorioAluno ra = new();
+
+            IEnumerable<Aluno> lista_alunos = new List<Aluno>();
+
+            lista_alunos = ra.Get(m => m.Matricula == id);
+
+            IEnumerable<AlunoModel> listaAlunoModel = lista_alunos.Select(o => new AlunoModel
+            {
+                Matricula = o.Matricula,
+                Nome = o.Nome,
+                Cpf = o.Cpf,
+                Nascimento = o.Nascimento,
+                Sexo = (MVCAlunos.Models.EnumeradorSexo)o.Sexo
+            });
+            return lista_alunos.FirstOrDefault();
         }
 
         [HttpPost]
         public void PostAlunos([FromBody] Aluno aluno)
         {
+
             if (ModelState.IsValid == true)
             {
-                _alunoRepository.Add(aluno);
+                RepositorioAluno ra = new();
+
+           
+                ra.Add(aluno);
+
             }
             else
             {
@@ -42,13 +72,15 @@ namespace AlunosAPI.Controllers
         }
 
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public void Delete(Aluno aluno)
         {
 
             if (ModelState.IsValid == true)
             {
-                _alunoRepository.Remove(id);
+                RepositorioAluno ra = new RepositorioAluno();
+                ra.Remove(aluno);
             }
+
         }
 
         [HttpPut("{id}")]
@@ -57,7 +89,9 @@ namespace AlunosAPI.Controllers
         {
             if (ModelState.IsValid == true)
             {
-                _alunoRepository.Update(id, aluno);
+                RepositorioAluno ra = new RepositorioAluno();
+                ra.Update(aluno);
+
             }
 
         }

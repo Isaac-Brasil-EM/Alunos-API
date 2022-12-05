@@ -13,4 +13,10 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MVCAlunos\MVCAlunos.csproj" />
+    <ProjectReference Include="..\ProjetosAluno\Domain\Domain.csproj" />
+    <ProjectReference Include="..\ProjetosAluno\Repository\Repository.csproj" />
+  </ItemGroup>
+
 </Project>

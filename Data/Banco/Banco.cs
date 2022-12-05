@@ -1,12 +1,5 @@
-﻿using AlunosAPI.Models;
-using FirebirdSql.Data.FirebirdClient;
-using System;
-using System.Collections.Generic;
+﻿using FirebirdSql.Data.FirebirdClient;
 using System.Data;
-using System.Data.Common;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Threading.Tasks;
 
 namespace MVCAlunos.Data.Banco
 {
